@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Ella 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(#fde6f2, #f6ecff);
+  color: #6b2c5c;
+  text-align: center;
+  overflow-x: hidden;
+  transition: background 2s;
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 { font-size: 2.2em; }
+
+.subtitle {
+  font-size: 1.2em;
+  max-width: 520px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+.next {
+  margin-top: 40px;
+  color: #a04a84;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: #f6c1dd;
+  color: #6b2c5c;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+/* Butterflies */
+.butterfly {
+  position: fixed;
+  font-size: 22px;
+  animation: fly 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes fly {
+  0% { transform: translateX(-10vw) translateY(80vh); }
+  100% { transform: translateX(110vw) translateY(-10vh); }
+}
+
+/* Sparkles */
+.sparkle {
+  position: fixed;
+  font-size: 18px;
+  pointer-events: none;
+  animation: fade 1s forwards;
+}
+
+@keyframes fade {
+  to { opacity: 0; transform: scale(2); }
+}
+
+/* Letter */
+.envelope { font-size: 60px; cursor: pointer; }
+
+.letter {
+  display: none;
+  margin: 30px auto;
+  padding: 25px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4em;
+  max-width: 500px;
+}
+
+/* Slideshow */
+.slideshow img {
+  width: 260px;
+  border-radius: 20px;
+  display: none;
+  margin: 0 auto;
+}
+
+/* Game */
+.game-area {
+  height: 300px;
+  position: relative;
+}
+
+.game-butterfly {
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Ending */
+.final {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2em;
+}
+</style>
+</head>
+
+<body onclick="sparkle(event)">
+
+<!-- Floating butterflies -->
+<div class="butterfly" style="top:70%; animation-delay:0s;">🦋</div>
+<div class="butterfly" style="top:40%; animation-delay:6s;">🦋</div>
+<div class="butterfly" style="top:20%; animation-delay:12s;">🦋</div>
+
+<section id="one">
+  <h1>To my beautiful girl Ella</h1>
+  <p class="subtitle">
+    I love you so incredibly much.<br>
+    You never fail to make me happy.
+  </p>
+
+  <a href="https://open.spotify.com/track/5cfsQZEFf1IpQr8F9vI9le" target="_blank">
+    <button>🎶 Play our song</button>
+  </a>
+
+  <div class="next" onclick="goTo('two')">Tap to continue 💗</div>
+</section>
+
+<section id="two">
+  <h1>Will you be my Valentine?</h1>
+  <div style="font-size:70px;">🐞💗</div>
+
+  <button onclick="yes()">Yes 💕</button>
+  <button onclick="yes()">Yes 🦋</button>
+
+  <div id="yesText" style="display:none; font-size:1.4em;">She said YES 💞</div>
+
+  <div class="next" onclick="goTo('three')">Tap to continue ✨</div>
+</section>
+
+<section id="three">
+  <h1>Why I love you</h1>
+  <p class="subtitle">
+    I love the way you laugh<br>
+    I love how safe you make me feel<br>
+    I love how being with you feels like home<br>
+    I love us
+  </p>
+
+  <div class="next" onclick="goTo('four')">Tap to continue 🦋</div>
+</section>
+
+<section id="four">
+  <h1>A cuddle from a wombat</h1>
+  <div style="font-size:90px;" onclick="wombat()">🦔</div>
+  <p id="wombatText"></p>
+
+  <div class="next" onclick="goTo('five')">Tap to continue 💌</div>
+</section>
+
+<section id="five">
+  <h1>A letter for you</h1>
+  <div class="envelope" onclick="openLetter()">💌</div>
+
+  <div id="letter" class="letter">
+    Ella,<br><br>
+    Loving you is the easiest and most beautiful thing I’ve ever known.
+    You make my world softer and brighter.
+    I choose you — today, tomorrow, always.<br><br>
+    I love you endlessly.
+  </div>
+
+  <div class="next" onclick="goTo('voice')">Tap to continue 🎧</div>
+</section>
+
+<section id="voice">
+  <h1>Just for you</h1>
+  <p class="subtitle">Tap the button and hear my voice 💗</p>
+
+  <button id="voiceButton" onclick="playVoice()">🎧 Tap to hear my voice</button>
+
+  <audio id="voiceNote">
+    <source src="ella.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="next" onclick="goTo('six')">Tap to continue 📸</div>
+</section>
+
+<section id="six">
+  <h1>Our memories</h1>
+
+  <div class="slideshow">
+    <img src="photo1.jpg" style="display:block;">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+
+  <p class="subtitle">Every moment with you is my favourite</p>
+
+  <div class="next" onclick="goTo('seven')">Tap to continue 🎮</div>
+</section>
+
+<section id="seven">
+  <h1>Catch the butterflies</h1>
+  <p id="score">Caught: 0 🦋</p>
+
+  <div class="game-area" id="game"></div>
+
+  <div class="next" onclick="goTo('eight')">Tap to continue 🌙</div>
+</section>
+
+<section id="eight">
+  <div class="final">
+    I don’t just choose you today<br>
+    I choose you every day 💞
+  </div>
+</section>
+
+<script>
+function goTo(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  if(id==='eight') {
+    document.body.style.background='linear-gradient(#1c1b33,#2d1f4f)';
+  }
+}
+
+function openLetter() {
+  document.getElementById('letter').style.display='block';
+}
+
+function yes() {
+  document.getElementById('yesText').style.display='block';
+}
+
+let taps = 0;
+function wombat() {
+  taps++;
+  if(taps === 5) {
+    document.getElementById('wombatText').innerText = "I love you 🥹";
+  }
+}
+
+function sparkle(e) {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.innerText = '✨';
+  s.style.left = e.clientX + 'px';
+  s.style.top = e.clientY + 'px';
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 1000);
+}
+
+/* Voice note */
+function playVoice() {
+  const audio = document.getElementById("voiceNote");
+  audio.play();
+  document.getElementById("voiceButton").innerText = "💗 Playing...";
+}
+
+/* Slideshow */
+let slideIndex = 0;
+setInterval(() => {
+  const slides = document.querySelectorAll(".slideshow img");
+  slides.forEach(s => s.style.display = "none");
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].style.display = "block";
+}, 3000);
+
+/* Butterfly game */
+let score = 0;
+const game = document.getElementById("game");
+for(let i = 0; i < 7; i++) {
+  const b = document.createElement("div");
+  b.innerText = "🦋";
+  b.className = "game-butterfly";
+  b.style.top = Math.random()*250 + "px";
+  b.style.left = Math.random()*250 + "px";
+  b.onclick = () => {
+    score++;
+    document.getElementById("score").innerText = "Caught: " + score + " 🦋";
+    b.remove();
+  };
+  game.appendChild(b);
+}
+</script>
+
+</body>
+</html>
