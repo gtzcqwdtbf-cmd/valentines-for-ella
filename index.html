@@ -104,35 +104,124 @@
         and all my love, always.
       </p>
     </div>
-    .envelope {
-      font-size: 60px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Ella 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .envelope:hover {
-      transform: scale(1.1);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
 
-    .letter {
-      display: none;
-      margin-top: 30px;
-      padding: 25px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 15px;
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.4em;
-      line-height: 1.6;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #6b2c5c;
-    </div>
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(to bottom, #fde6f2, #f6ecff);
+  color: #6b2c5c;
+  text-align: center;
+}
+
+.container {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 2.3em;
+}
+
+.subtitle {
+  font-size: 1.3em;
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+.butterfly {
+  position: fixed;
+  font-size: 24px;
+  animation: fly 20s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes fly {
+  0% { transform: translateX(-10vw) translateY(80vh); }
+  100% { transform: translateX(110vw) translateY(-10vh); }
+}
+
+.envelope {
+  font-size: 60px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.letter {
+  display: none;
+  margin-top: 30px;
+  padding: 25px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 15px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4em;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Butterflies -->
+<div class="butterfly" style="top:70%; animation-delay:0s;">🦋</div>
+<div class="butterfly" style="top:40%; animation-delay:6s;">🦋</div>
+<div class="butterfly" style="top:20%; animation-delay:12s;">🦋</div>
+
+<div class="container">
+
+<h1>To my beautiful girl Ella</h1>
+<p class="subtitle">
+I love you so incredibly much.<br>
+You never fail to make me happy.
+</p>
+
+<p style="margin-top:40px;">✨ Happy Valentine’s Day ✨</p>
+
+<div style="margin-top:80px;">
+<h1>Will you be my Valentine?</h1>
+<div style="font-size:60px;">🐞💗</div>
+</div>
+
+<div style="margin-top:100px;">
+<h1>A cuddle from a wombat</h1>
+<div style="font-size:80px;">🦔</div>
+<p class="subtitle">
+Sending you the biggest, warmest cuddle<br>
+and all my love, always.
+</p>
+</div>
+
+<div style="margin-top:100px;">
+<h1>A letter for you</h1>
+<div class="envelope" onclick="openLetter()">💌</div>
+
+<div id="loveLetter" class="letter">
+Ella,<br><br>
+Loving you is the easiest and most beautiful thing I’ve ever known.
+You make my world softer, brighter, and full of laughter.
+Every day with you feels like home, and I can’t wait to make so many more memories together.<br><br>
+I love you endlessly.
+</div>
+</div>
+
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("loveLetter").style.display = "block";
+}
+</script>
 
 </body>
 </html>
-<script>
-  function openLetter() {
-    document.getElementById("loveLetter").style.display = "block";
-  }
-</script>
