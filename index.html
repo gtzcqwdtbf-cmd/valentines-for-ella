@@ -14,6 +14,7 @@ body {
   background: linear-gradient(to bottom, #fde6f2, #f6ecff);
   color: #6b2c5c;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .container {
@@ -62,6 +63,17 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.music-button {
+  margin-top:20px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  background:#f6c1dd;
+  color:#6b2c5c;
+  font-size:1em;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -82,11 +94,13 @@ You never fail to make me happy.
 
 <p style="margin-top:40px;">✨ Happy Valentine’s Day ✨</p>
 
+<!-- Valentine question -->
 <div style="margin-top:80px;">
 <h1>Will you be my Valentine?</h1>
 <div style="font-size:60px;">🐞💗</div>
 </div>
 
+<!-- Wombat -->
 <div style="margin-top:100px;">
 <h1>A cuddle from a wombat</h1>
 <div style="font-size:80px;">🦔</div>
@@ -96,8 +110,20 @@ and all my love, always.
 </p>
 </div>
 
-<div style="margin-top:100px;">
+<!-- Music -->
+<div style="margin-top:120px;">
+<h1>Our Song</h1>
+<p class="subtitle">Butterflies – Justin Bieber</p>
+
+<audio id="song" src="butterflies.mp3"></audio>
+
+<button class="music-button" onclick="toggleMusic()">▶️ Play / Pause</button>
+</div>
+
+<!-- Letter -->
+<div style="margin-top:120px;">
 <h1>A letter for you</h1>
+
 <div class="envelope" onclick="openLetter()">💌</div>
 
 <div id="loveLetter" class="letter">
@@ -114,6 +140,15 @@ I love you endlessly.
 <script>
 function openLetter() {
   document.getElementById("loveLetter").style.display = "block";
+}
+
+function toggleMusic() {
+  const song = document.getElementById("song");
+  if (song.paused) {
+    song.play();
+  } else {
+    song.pause();
+  }
 }
 </script>
 
