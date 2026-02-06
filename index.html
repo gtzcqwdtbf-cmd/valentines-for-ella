@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ella 💗</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(#fdeee7, #dff1f5);
+  color: #444;
+  text-align: center;
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+section.active {
+  display: flex;
+}
+
+/* Buttons */
+button {
+  margin-top: 20px;
+  padding: 12px 26px;
+  border-radius: 25px;
+  border: none;
+  background: #ffb7c5;
+  color: white;
+  font-size: 16px;
+}
+
+/* Text */
+.soft {
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Butterfly */
+.butterfly {
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Links fade in */
+.location {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 1s;
+}
+
+a {
+  color: #6aa7b2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Wave animation */
+.wave {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 200%;
+  height: 120px;
+  background: rgba(173, 216, 230, 0.35);
+  border-radius: 100% 100% 0 0;
+  animation: waveMove 8s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="song" autoplay loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 1 LANDING -->
+<section class="active">
+  <h1>To my beautiful girl Ella</h1>
+  <p class="soft">
+    I love you so incredibly much<br>
+    You never fail to make me happy.
+  </p>
+  <button onclick="next()">Tap to begin</button>
+</section>
+
+<!-- 2 VALENTINE -->
+<section>
+  <h2>Will you be my Valentine?</h2>
+  <p>🐞❤️</p>
+  <button onclick="next()">Yes</button>
+  <button onclick="next()">Yes</button>
+</section>
+
+<!-- 3 BUTTERFLY GAME -->
+<section id="butterflySection">
+  <h2>Catch 8 butterflies 🦋</h2>
+  <p id="count">0 / 8</p>
+
+  <p id="butterflyMessage" class="soft hidden">
+    8 butterflies — because the 8th is when I asked you to be my girlfriend 💗
+  </p>
+
+  <button id="butterflyNext" class="hidden" onclick="next()">Continue</button>
+</section>
+
+<!-- 4 LETTER -->
+<section>
+  <h2>💌 Tap the letter</h2>
+  <button onclick="openLetter()">Open</button>
+
+  <p id="letter" class="soft hidden">
+    I just want you to know how much I love you and how grateful I am for you.
+    Being with you feels easy and safe, and you make even the smallest moments special.
+    I’m so lucky that I get to love you and be loved by you.
+  </p>
+
+  <button id="letterNext" class="hidden" onclick="next()">Continue</button>
+</section>
+
+<!-- 5 YOUR SPECIAL PLACE (WAVE ADDED) -->
+<section>
+  <div class="wave"></div>
+
+  <p class="soft">
+    🌊 Thank you for bringing me somewhere that’s special to you.<br>
+    It means a lot that you share this place with me, and that I get to be close to you here.<br>
+    Being here with you makes it feel even more special.
+  </p>
+
+  <p class="location">
+    📍 <a href="https://maps.google.com/?q=Anglesea+Victoria" target="_blank">
+      Anglesea
+    </a>
+  </p>
+
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 6 PENGUINS -->
+<section>
+  <h2>🐧</h2>
+
+  <p class="soft">
+    Where it all started.<br>
+    Places hold feelings, and this night stayed with me.
+  </p>
+
+  <p class="location">
+    📍 <a href="https://maps.google.com/?q=St+Kilda+Pier" target="_blank">
+      St Kilda Pier
+    </a>
+  </p>
+
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 7 PUFFERFISH -->
+<section>
+  <h2>🐡 Tap the pufferfish</h2>
+  <button onclick="revealPuffer()">Tap</button>
+
+  <p id="puffer" class="soft hidden">
+    WEEEEEEE<br>
+    I love you.<br>
+    You found a secret message.
+  </p>
+
+  <button id="pufferNext" class="hidden" onclick="next()">Continue</button>
+</section>
+
+<!-- 8 REASSURANCE -->
+<section>
+  <p class="soft">
+    You never have to be anything other than yourself with me.
+  </p>
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 9 LOADING -->
+<section>
+  <p class="soft">Loading how much I love you…</p>
+  <p class="soft">Error: too much.</p>
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 10 WAVES -->
+<section>
+  <p class="soft">Can you hear the waves?</p>
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 11 VOICE -->
+<section>
+  <h2>🎧</h2>
+  <button onclick="document.getElementById('voice').play()">Tap to hear my voice</button>
+  <audio id="voice" src="voice.mp3"></audio>
+  <button onclick="next()">Continue</button>
+</section>
+
+<!-- 12 FINAL -->
+<section>
+  <p class="soft">
+    You can come back to this whenever you want.<br>
+    <small>Even if it’s just for a minute.</small>
+  </p>
+
+  <p onclick="alert('I still think it’s funny that seagulls led me to you 🐦')">
+    🐦
+  </p>
+
+  <button onclick="restart()">Start again</button>
+</section>
+
+<script>
+let current = 0;
+const sections = document.querySelectorAll("section");
+
+function next() {
+  sections[current].classList.remove("active");
+  current++;
+  sections[current].classList.add("active");
+}
+
+function restart() {
+  sections[current].classList.remove("active");
+  current = 0;
+  sections[current].classList.add("active");
+}
+
+function openLetter() {
+  document.getElementById("letter").classList.remove("hidden");
+  document.getElementById("letterNext").classList.remove("hidden");
+}
+
+function revealPuffer() {
+  document.getElementById("puffer").classList.remove("hidden");
+  document.getElementById("pufferNext").classList.remove("hidden");
+}
+
+/* Butterfly Game */
+let caught = 0;
+const gameSection = document.getElementById("butterflySection");
+
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement("div");
+  b.innerHTML = "🦋";
+  b.className = "butterfly";
+  b.style.left = Math.random() * 80 + "vw";
+  b.style.top = Math.random() * 70 + "vh";
+
+  b.onclick = () => {
+    b.remove();
+    caught++;
+    document.getElementById("count").innerText = caught + " / 8";
+
+    if (caught === 8) {
+      document.getElementById("butterflyMessage").classList.remove("hidden");
+      document.getElementById("butterflyNext").classList.remove("hidden");
+    }
+  };
+
+  gameSection.appendChild(b);
+}
+</script>
+
+</body>
+</html>
